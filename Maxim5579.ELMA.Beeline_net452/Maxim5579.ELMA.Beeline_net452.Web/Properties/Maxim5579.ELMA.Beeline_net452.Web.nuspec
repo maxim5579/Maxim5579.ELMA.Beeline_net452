@@ -1,0 +1,13 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <title>My ELMA3 Web Module</title>
+    <version>$version$</version>
+    <description>My ELMA3 Web Module Sample</description>
+    <authors>My Company</authors>
+    <tags>[OwnerId:Maxim5579.ELMA.Beeline_net452] [Component:Web]</tags>
+    <dependencies>
+    </dependencies>
+  </metadata>
+</package>

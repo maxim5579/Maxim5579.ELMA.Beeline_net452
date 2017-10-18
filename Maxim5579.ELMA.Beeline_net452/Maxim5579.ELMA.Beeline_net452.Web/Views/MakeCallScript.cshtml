@@ -1,0 +1,46 @@
+﻿@using Maxim5579.ELMA.Beeline_net452.Web
+
+<script type="text/javascript">
+    function makeCallClick(phone) {
+        $.ajax({
+            url: '@Url.Action("MakeCall", "BeelineServer", new { area = BeelineAreaRegistration.AREA_NAME })?phone=' + phone.replace(/\+/, "%2B"),
+            type: 'GET',
+            dataType: 'json',
+            cache: false,
+            success: function (data) {
+                if (data.success) {
+                    if (data.calling) {
+                        $('#callStatus').html('@EleWise.ELMA.SR.T("Вызов...")');
+                        setTimeout(function () { callStatusUpdate(data.actionid); }, 500);
+                    } else {
+                        $('#callStatus').html(jQuery.validator.format('@EleWise.ELMA.SR.T("Ошибка вызова: {0}")', data.message));
+                    }
+                } else {
+                    jAlert('@EleWise.ELMA.SR.T("Ошибка осуществления звонка:")' + data.error, '@EleWise.ELMA.SR.T("Ошибка")');
+                }
+            }
+        });
+    }
+
+    @*function callStatusUpdate(actionid) {
+        $.ajax({
+            url: '@Url.Action("GetCallStatus", "AsteriskServer", new { area = AsteriskAreaRegistration.AREA_NAME })?actionid='+actionid,
+            type: 'GET',
+            dataType: 'json',
+            cache: false,
+            success: function (data) {
+                if (data.success) {
+                    if (data.status == -1) {
+                        setTimeout(function () { callStatusUpdate(actionid); }, 3000);
+                    }
+                    else {
+                        $('#callStatus').html(data.displayStatus);
+                    }
+                }
+                else {
+                    $('#callStatus').html('@EleWise.ELMA.SR.T("Ошибка получения статуса")');
+                }
+            }
+        });
+    }*@
+</script>

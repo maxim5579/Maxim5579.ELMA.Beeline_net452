@@ -1,0 +1,15 @@
+﻿Name: Maxim5579.ELMA.Beeline_net452.Web
+Module: Maxim5579.ELMA.Beeline_net452
+AntiForgery: disabled
+DisplayName: Телефония Билайн
+Author: maxim5579
+Website: http://www.elma-bpm.ru
+Version: 3.0.0
+OrchardVersion: 1.0.20
+Description: Провайдер телефонии Билайн
+Features:
+    Maxim5579.ELMA.Beeline_net452.Web:
+        Name: Maxim5579.ELMA.Beeline_net452.Web
+        Description: Провайдер телефонии Билайн
+        Category: Телефония Билайн
+        Dependencies: EleWise.ELMA.BPM.Web.Content, EleWise.ELMA.BPM.Web.Common

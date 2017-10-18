@@ -1,0 +1,7 @@
+﻿@model Maxim5579.ELMA.Beeline_net452.BeelineSettings
+
+@using (Html.TableForm(v => v.ViewType(EleWise.ELMA.Model.Views.ViewType.Edit).Attributes(a => a.@class = "settings_table")))
+{
+    @Html.EditableProperty(m => m.BeelineHost)
+    @Html.EditableProperty(m => m.BeelineToken)
+}
