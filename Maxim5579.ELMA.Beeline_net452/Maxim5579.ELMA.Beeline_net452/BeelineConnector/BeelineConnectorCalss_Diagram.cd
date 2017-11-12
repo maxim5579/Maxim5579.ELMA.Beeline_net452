@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Maxim5579.ELMA.Beeline_net452.BeelineSettings" Collapsed="true">
+    <Position X="20.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAEAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BeelineSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maxim5579.ELMA.Beeline_net452.BeelineAPI.Abonent" Collapsed="true">
+    <Position X="13.25" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAgCgAAAAAQAAAAAAAgAAEACAAAAAA=</HashCode>
+      <FileName>BeelineAPI\BeeConnect.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Sinfo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Maxim5579.ELMA.Beeline_net452.BeelineConnector">
+    <Position X="0.5" Y="0.5" Width="3.5" />
+    <NestedTypes>
+      <Delegate Name="Maxim5579.ELMA.Beeline_net452.BeelineConnector.CallReleased" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>BeelineConnector\BeelineConnector.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="Maxim5579.ELMA.Beeline_net452.BeelineConnector.CallReleasing" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>BeelineConnector\BeelineConnector.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="Maxim5579.ELMA.Beeline_net452.BeelineConnector.CallOriginated" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>BeelineConnector\BeelineConnector.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="Maxim5579.ELMA.Beeline_net452.BeelineConnector.CallOriginating" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>BeelineConnector\BeelineConnector.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="Maxim5579.ELMA.Beeline_net452.BeelineConnector.CallReceived" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>BeelineConnector\BeelineConnector.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="Maxim5579.ELMA.Beeline_net452.BeelineConnector.CallAnswered" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>BeelineConnector\BeelineConnector.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAABQBAAAIgAAAwAAAAQEIAgAAEAAIAAAA=</HashCode>
+      <FileName>BeelineConnector\BeelineConnector.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_apiConnect" />
+      <Field Name="typesEvents" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Maxim5579.ELMA.Beeline_net452.BeelineAPI.Dial" Collapsed="true">
+    <Position X="10" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAgAAAIAAgAAAAAAAQBAAAAAA=</HashCode>
+      <FileName>BeelineAPI\BeeConnect.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="State" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Maxim5579.ELMA.Beeline_net452.BeelineAPI.FullInfoDial">
+    <Position X="9" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAACAAAACAAA=</HashCode>
+      <FileName>BeelineAPI\BeeConnect.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="AbonentTelephony" />
+      <Field Name="Dial" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Maxim5579.ELMA.Beeline_net452.BeelineAPI.BeeConnect" Collapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgQAAAIAACAAAAAAAAAAAAACAAAIAAAAABAAAIQA=</HashCode>
+      <FileName>BeelineAPI\BeeConnect.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_api" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Maxim5579.ELMA.Beeline_net452.BeelineAPI.BeelineAPI" Collapsed="true">
+    <Position X="6" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAABAAAAAAAAAAAAAAgAKBAAAAg=</HashCode>
+      <FileName>BeelineAPI\BeeConnect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maxim5579.ELMA.Beeline_net452.BeelineAPI.RestAPIBeeline" Collapsed="true">
+    <Position X="17.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BeelineAPI\BeeConnect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maxim5579.ELMA.Beeline_net452.BeelineAPI.Methods" Collapsed="true">
+    <Position X="20" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAACAEAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>BeelineAPI\BeeConnect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maxim5579.ELMA.Beeline_net452.BeelineAPI.OutCallInfo" Collapsed="true">
+    <Position X="22.25" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAACBAAAA=</HashCode>
+      <FileName>BeelineAPI\BeeConnect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maxim5579.ELMA.Beeline_net452.BeelineAPI.SubscriptionRequest" Collapsed="true">
+    <Position X="20.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAoEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BeelineAPI\BeeConnect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maxim5579.ELMA.Beeline_net452.BeelineAPI.SubscriptionType" Collapsed="true">
+    <Position X="20" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BeelineAPI\BeeConnect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maxim5579.ELMA.Beeline_net452.BeelineAPI.SubscriptionResult" Collapsed="true">
+    <Position X="13.5" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BeelineAPI\BeeConnect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maxim5579.ELMA.Beeline_net452.BeelineAPI.SubscriptionInfo" Collapsed="true">
+    <Position X="21.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAIAAARAAAAAAAAAAAAAoAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BeelineAPI\BeeConnect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maxim5579.ELMA.Beeline_net452.BeelineAPI.TypesEvent" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BeelineAPI\BeeConnect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Maxim5579.ELMA.Beeline_net452.BeelineAPI.DialState" Collapsed="true">
+    <Position X="11.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAQAAAAAAAIAAAAAQAAAAAA=</HashCode>
+      <FileName>BeelineAPI\BeeConnect.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

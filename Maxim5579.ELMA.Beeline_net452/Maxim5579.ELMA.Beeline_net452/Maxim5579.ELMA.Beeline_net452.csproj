@@ -32,6 +32,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EleWise.ELMA.CRM">
@@ -47,7 +49,11 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="EleWise.ELMA.SDK">
-      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.SDK.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\xiijles4.5n3\EleWise.ELMA.SDK.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.SDK.Web">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.SDK.Web.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="EleWise.ELMA.Security">
@@ -67,6 +73,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -77,18 +86,23 @@
     <None Include="AssemblyInfo.md">
       <Generator>MDCodeGenerator</Generator>
     </None>
+    <None Include="BeelineConnector\BeelineConnectorCalss_Diagram.cd" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Maxim5579.ELMA.Beeline_net452.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="BeelineAPI\BeeConnect.cs" />
+    <Compile Include="BeelineAPI\BeelineWebService.cs" />
+    <Compile Include="BeelineConnector\BeelineConnector.cs" />
     <Compile Include="BeelineSettings.cs" />
     <Compile Include="BeelineSettingsModule.cs" />
     <Compile Include="Components\BeelineSettingsEventHandler.cs" />
     <Compile Include="Components\BeelineTelephonyProvider.cs" />
     <Compile Include="Managers\BeelineManager.cs" />
     <Compile Include="ProjectAssemblyInfo.cs" />
+    <Compile Include="Schema\XSISchema.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exceptions\" />

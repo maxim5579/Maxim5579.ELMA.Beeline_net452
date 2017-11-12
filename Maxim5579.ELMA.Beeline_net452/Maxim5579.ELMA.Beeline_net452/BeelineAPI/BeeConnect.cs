@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using EleWise.ELMA.CRM.Telephony.Managers;
+using EleWise.ELMA.Security.Models;
 using Newtonsoft.Json;
 
 namespace Maxim5579.ELMA.Beeline_net452.BeelineAPI
@@ -19,7 +20,7 @@ namespace Maxim5579.ELMA.Beeline_net452.BeelineAPI
         private readonly BeelineAPI _api;
         public bool init;
 
-        private TelephonyManager TelephonyManager { get; } = TelephonyManager.Instance;
+        //private TelephonyManager TelephonyManager { get; } = TelephonyManager.Instance;
 
         /// <summary>
         /// Инициализация нового класса
@@ -33,6 +34,8 @@ namespace Maxim5579.ELMA.Beeline_net452.BeelineAPI
             _api = new BeelineAPI(host);
             init = true;
         }
+
+        
 
         /// <summary>
         /// Совершает звонок от имени абонента
@@ -315,13 +318,39 @@ namespace Maxim5579.ELMA.Beeline_net452.BeelineAPI
     /// </summary>
     public class Abonent
     {
+        /// <summary>
+        /// Идентификатор абонента
+        /// </summary>
         public string userID { get; set; }
+        /// <summary>
+        /// Номер мобильного телефона
+        /// </summary>
         public string phone { get; set; }
+        /// <summary>
+        /// Имя
+        /// </summary>
         public string firstName { get; set; }
+        /// <summary>
+        /// Фамилия
+        /// </summary>
         public string lastName { get; set; }
+        /// <summary>
+        /// Электронная почта
+        /// </summary>
         public string email { get; set; }
+        /// <summary>
+        /// Подразделение
+        /// </summary>
         public string department { get; set; }
+        /// <summary>
+        /// Добавочный номер
+        /// </summary>
         public string extension { get; set; }
+
+        /// <summary>
+        /// Информация о подписке
+        /// </summary>
+        public SubscriptionResult Sinfo { get; set; }
     }
 
     /// <summary>
@@ -365,5 +394,112 @@ namespace Maxim5579.ELMA.Beeline_net452.BeelineAPI
         public string expires { get; set; }
         public string url { get; set; }
     }
+
+    /// <summary>
+    /// Класс описание звонка
+    /// </summary>
+    public class Dial
+    {
+        /// <summary>
+        /// ID подписки на событие
+        /// </summary>
+        public string SubscriptionID { get; set; }
+
+        /// <summary>
+        /// Трек номер звонка
+        /// </summary>
+        public string TrackingId { get; set; }
+
+        /// <summary>
+        /// Текущий статус звонка
+        /// </summary>
+        public DialState State { get; set; }
+
+        /// <summary>
+        /// Время начала разговора
+        /// </summary>
+        public string StartTime { get; set; }
+
+        /// <summary>
+        /// Время окончания разговора
+        /// </summary>
+        public string EndTime { get; set; }
+
+        /// <summary>
+        /// Внешний абонент
+        /// </summary>
+        public string RemoteAddress { get; set; }
+
+        
+    }
     #endregion
+
+    #region впомогательные структуры;
+    public class TypesEvent
+    {
+        public HashSet<string> CallTypesSet { get; }
+
+        public TypesEvent()
+        {
+            CallTypesSet = new HashSet<string>();
+            CallTypesSet.Add("CallReleasedEvent");
+            CallTypesSet.Add("CallReleasingEvent");
+            CallTypesSet.Add("CallOriginatedEvent");
+            CallTypesSet.Add("CallOriginatingEvent");
+            CallTypesSet.Add("CallReceivedEvent");
+            CallTypesSet.Add("CallAnsweredEvent");
+            //CallTypesSet.Add("HookStatusEvent");
+            //CallTypesSet.Add("CallSubscriptionEvent");
+            CallTypesSet.Add("SubscriptionTerminatedEvent");
+        }
+    }
+
+    public enum DialState
+    {
+        /// <summary>
+        /// Входящий. Ожидание ответа
+        /// </summary>
+        InnerCall_waiting,
+        /// <summary>
+        /// Исходящий. Ожидание ответа
+        /// </summary>
+        OuterCall_originated,
+        /// <summary>
+        /// Начало разговора
+        /// </summary>
+        CallAnswered,
+        /// <summary>
+        /// Завершение разговора
+        /// </summary>
+        CallEnding
+    }
+
+    #endregion
+
+    public class FullInfoDial
+    {
+        /// <summary>
+        /// Пользователь системы
+        /// </summary>
+        public readonly IUser SystemUser;
+
+        /// <summary>
+        /// Абонент телефонии
+        /// </summary>
+        public readonly Abonent AbonentTelephony;
+
+        /// <summary>
+        /// Информация о звонке
+        /// </summary>
+        public readonly Dial Dial;
+
+        public FullInfoDial(KeyValuePair<IUser,Abonent> abonentTelephony, Dial dial)
+        {
+            SystemUser = abonentTelephony.Key;
+            AbonentTelephony = abonentTelephony.Value;
+            Dial = dial;
+        }
+
+        
+    }
 }
