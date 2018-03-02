@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <AssemblyLoadSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Solutions />
-  <Urls />
-  <SelectedUrl>http://</SelectedUrl>
-  <Login />
+  <Urls>
+    <string>http://138.201.120.143</string>
+  </Urls>
+  <SelectedUrl>http://138.201.120.143</SelectedUrl>
+  <Login>shamshin_mn</Login>
   <SelectedModules />
 </AssemblyLoadSettings>

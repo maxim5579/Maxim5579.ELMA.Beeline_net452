@@ -18,24 +18,24 @@ namespace Maxim5579.ELMA.Beeline_net452.Web
         public IEnumerable<RouteDescriptor> GetRoutes()
         {
             return new[] {
-                             new RouteDescriptor {
-                                                     Priority = 20,
-                                                     Route = new Route(
-                                                         "Beeline_net452/{controller}/{action}/{id}",
-                                                         new RouteValueDictionary {
-                                                                                      {"area", AreaName},
-                                                                                      {"controller", "Home"},
-                                                                                      {"action", "Index"},
-                                                                                      {"id", UrlParameter.Optional}
-                                                                                  },
-                                                         null,
-                                                         new RouteValueDictionary
-                                                             {
-                                                                 {"area", AreaName}
-                                                             },
-                                                         new MvcRouteHandler())
-                                                 }
-                         };
+                new RouteDescriptor {
+                    Priority = 20,
+                    Route = new Route(
+                        "Beeline_net452/{controller}/{action}/{id}",
+                        new RouteValueDictionary {
+                            {"area", AreaName},
+                            {"controller", "Home"},
+                            {"action", "Index"},
+                            {"id", UrlParameter.Optional}
+                        },
+                        null,
+                        new RouteValueDictionary
+                        {
+                            {"area", AreaName}
+                        },
+                        new MvcRouteHandler())
+                }
+            };
         }
     }
 }

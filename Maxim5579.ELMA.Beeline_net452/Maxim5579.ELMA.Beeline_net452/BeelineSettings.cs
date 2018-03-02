@@ -12,8 +12,9 @@ namespace Maxim5579.ELMA.Beeline_net452
         public BeelineSettings()
         {
             BeelineHost = "https://cloudpbx.beeline.ru/apis/portal";
-            BeelineToken = "Token service";
-            TelephonyManager.TelephonyLog.Debug(String.Format("Конструктор настроек. Токен - {0}", BeelineToken));
+            //BeelineToken = " 7a0cc164-8dcf-4b1f-8091-c1a412c18c06";
+            BeelineToken = "3fce0597-b0f4-43f1-ac38-70735ec26aea";
+            //TelephonyManager.TelephonyLog.Debug(String.Format("Конструктор настроек. Токен - {0}", BeelineToken));
         }
 
         private string token;
@@ -28,7 +29,7 @@ namespace Maxim5579.ELMA.Beeline_net452
             set
             {
                 token = value;
-                TelephonyManager.TelephonyLog.Debug(String.Format("Новый Токен - {0}", BeelineToken));
+                //TelephonyManager.TelephonyLog.Debug(String.Format("Новый Токен - {0}", BeelineToken));
             } }
 
         #region Resources

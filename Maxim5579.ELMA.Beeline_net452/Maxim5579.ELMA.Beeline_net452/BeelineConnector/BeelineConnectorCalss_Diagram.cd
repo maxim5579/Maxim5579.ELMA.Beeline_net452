@@ -20,27 +20,7 @@
   <Class Name="Maxim5579.ELMA.Beeline_net452.BeelineConnector">
     <Position X="0.5" Y="0.5" Width="3.5" />
     <NestedTypes>
-      <Delegate Name="Maxim5579.ELMA.Beeline_net452.BeelineConnector.CallReleased" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>BeelineConnector\BeelineConnector.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Delegate>
-      <Delegate Name="Maxim5579.ELMA.Beeline_net452.BeelineConnector.CallReleasing" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>BeelineConnector\BeelineConnector.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Delegate>
-      <Delegate Name="Maxim5579.ELMA.Beeline_net452.BeelineConnector.CallOriginated" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>BeelineConnector\BeelineConnector.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Delegate>
-      <Delegate Name="Maxim5579.ELMA.Beeline_net452.BeelineConnector.CallOriginating" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>BeelineConnector\BeelineConnector.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Delegate>
-      <Delegate Name="Maxim5579.ELMA.Beeline_net452.BeelineConnector.CallReceived" Collapsed="true">
+      <Delegate Name="Maxim5579.ELMA.Beeline_net452.BeelineConnector.NewInnerCall" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>BeelineConnector\BeelineConnector.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -50,9 +30,14 @@
           <NewMemberFileName>BeelineConnector\BeelineConnector.cs</NewMemberFileName>
         </TypeIdentifier>
       </Delegate>
+      <Delegate Name="Maxim5579.ELMA.Beeline_net452.BeelineConnector.CallEnding" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>BeelineConnector\BeelineConnector.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAABQBAAAIgAAAwAAAAQEIAgAAEAAIAAAA=</HashCode>
+      <HashCode>AgBAAAAAAAAABQBAAAIgAAAwAQAAAEIAgQAAAAAAAAA=</HashCode>
       <FileName>BeelineConnector\BeelineConnector.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -60,8 +45,8 @@
       <Field Name="typesEvents" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Maxim5579.ELMA.Beeline_net452.BeelineAPI.Dial" Collapsed="true">
-    <Position X="10" Y="2.75" Width="2" />
+  <Class Name="Maxim5579.ELMA.Beeline_net452.BeelineAPI.Dial">
+    <Position X="7.5" Y="3.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAACAAAAAgAAAIAAgAAAAAAAQBAAAAAA=</HashCode>
       <FileName>BeelineAPI\BeeConnect.cs</FileName>
@@ -152,6 +137,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BeelineAPI\BeeConnect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Maxim5579.ELMA.Beeline_net452.Dials">
+    <Position X="5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dials.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="Maxim5579.ELMA.Beeline_net452.BeelineAPI.DialState" Collapsed="true">

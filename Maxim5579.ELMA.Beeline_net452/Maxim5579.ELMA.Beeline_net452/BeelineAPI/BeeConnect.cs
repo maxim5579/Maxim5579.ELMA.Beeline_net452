@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EleWise.ELMA.CRM.Telephony.Managers;
 using EleWise.ELMA.Security.Models;
+using Maxim5579.ELMA.Beeline_net452.Schema;
 using Newtonsoft.Json;
 
 namespace Maxim5579.ELMA.Beeline_net452.BeelineAPI
@@ -19,6 +20,11 @@ namespace Maxim5579.ELMA.Beeline_net452.BeelineAPI
         private readonly string _token;
         private readonly BeelineAPI _api;
         public bool init;
+
+        public BeelineAPI Api
+        {
+            get { return _api; }
+        }
 
         //private TelephonyManager TelephonyManager { get; } = TelephonyManager.Instance;
 
@@ -34,9 +40,6 @@ namespace Maxim5579.ELMA.Beeline_net452.BeelineAPI
             _api = new BeelineAPI(host);
             init = true;
         }
-
-        
-
         /// <summary>
         /// Совершает звонок от имени абонента
         /// </summary>
@@ -180,6 +183,8 @@ namespace Maxim5579.ELMA.Beeline_net452.BeelineAPI
                 httpResponseBody = "Error: " + ex.HResult.ToString("X") + " Message: " + ex.Message;
             }
         }
+
+        
     }
 
     /// <summary>
@@ -250,6 +255,18 @@ namespace Maxim5579.ELMA.Beeline_net452.BeelineAPI
         public RestAPIBeeline closeSubscript(string idSubscript)
         {
             return new RestAPIBeeline(Methods.Delete, host + String.Format("/subscription?subscriptionId={0}", idSubscript));
+        }
+
+        /// <summary>
+        /// Ссылка на файл записи телефонного разговора
+        /// </summary>
+        /// <param name="trackingId">Трек номер разговора</param>
+        /// <param name="abonentId">Номер внутреннего абонента в формате 9...</param>
+        /// <returns></returns>
+        public RestAPIBeeline getRecordFile(string trackingId, string abonentId)
+        {
+            return new RestAPIBeeline(Methods.Get,
+                String.Format("{0}/v2/records/{1}/{2}/download", host, trackingId, abonentId));
         }
     }
 
@@ -418,17 +435,22 @@ namespace Maxim5579.ELMA.Beeline_net452.BeelineAPI
         /// <summary>
         /// Время начала разговора
         /// </summary>
-        public string StartTime { get; set; }
+        public long StartTime { get; set; }
 
         /// <summary>
         /// Время окончания разговора
         /// </summary>
-        public string EndTime { get; set; }
+        public long EndTime { get; set; }
 
         /// <summary>
         /// Внешний абонент
         /// </summary>
         public string RemoteAddress { get; set; }
+
+        /// <summary>
+        /// Вся информация о звонке из события
+        /// </summary>
+        public Call CallOutEvent { get; set; }
 
         
     }

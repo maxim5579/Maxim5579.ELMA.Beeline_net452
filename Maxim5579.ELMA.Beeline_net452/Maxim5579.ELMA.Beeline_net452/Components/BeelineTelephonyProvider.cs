@@ -21,9 +21,9 @@ namespace Maxim5579.ELMA.Beeline_net452.Components
 
         public void MakeCall(string phone)
         {
-            TelephonyManager.TelephonyLog.Info("MakeCall into TelephonyProvider - start");
+            //TelephonyManager.TelephonyLog.Info("MakeCall into TelephonyProvider - start");
             manager.MakeCall(phone);
-            TelephonyManager.TelephonyLog.Info("MakeCall into TelephonyProvider - OK"); ;
+            //TelephonyManager.TelephonyLog.Info("MakeCall into TelephonyProvider - OK"); ;
         }
     }
 }

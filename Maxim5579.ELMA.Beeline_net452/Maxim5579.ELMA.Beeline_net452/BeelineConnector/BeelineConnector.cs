@@ -8,6 +8,8 @@ using System.Xml.Serialization;
 using EleWise.ELMA.Security.Models;
 using EleWise.ELMA.Security.Managers;
 using EleWise.ELMA.API;
+using EleWise.ELMA.CRM.Telephony.Managers;
+using EleWise.ELMA.Logging;
 using EleWise.ELMA.Security.Services;
 using EleWise.ELMA.Services;
 using Maxim5579.ELMA.Beeline_net452.BeelineAPI;
@@ -22,27 +24,33 @@ namespace Maxim5579.ELMA.Beeline_net452
     {
         private readonly string _subscriptionUrl;
         private readonly BeeConnect _apiConnect;
-        public Dictionary<IUser, Abonent> AbonentsConnector;
+        public Dictionary<User, Abonent> AbonentsConnector;
+        public Dials ActualDials;
         public TypesEvent typesEvents;
+        private FileLogsWriter LogEvents;
+
+        //private TelephonyManager TelephonyManager { get; } = TelephonyManager.Instance;
 
         #region События класса
-        public delegate Dial CallReleased();
+        public delegate void NewInnerCall(Dial newDial);
 
-        public event CallReleased onReleased;
+        public event NewInnerCall onNewInnerCall;
 
-        public delegate Dial CallReleasing();
+        public delegate void NewOuterCall(Dial newDial);
 
-        public event CallReleasing onReleasing;
+        public event NewOuterCall onNewOuterCall;
 
-        public delegate Dial CallOriginated();
+        public delegate void CallAnswered(Dial newDial);
 
-        public event CallOriginated onOriginated;
+        public event CallAnswered onCallAnswered;
 
-        public delegate Dial CallOriginating();
+        public delegate void CallEnding(Dial newDial);
 
-        public delegate Dial CallReceived();
+        public event CallEnding onCallEnding;
 
-        public delegate Dial CallAnswered();
+        public delegate void CallCenterInnerCall(Dial newDial);
+
+        public event CallCenterInnerCall onCallCenterInnerCall;
         #endregion
 
         /// <summary>
@@ -55,6 +63,8 @@ namespace Maxim5579.ELMA.Beeline_net452
             this._apiConnect = apiConnect;
             this._subscriptionUrl = subscriptionUrl;
             typesEvents = new TypesEvent();
+            ActualDials = new Dials();
+            LogEvents = new FileLogsWriter();
         }
 
         /// <summary>
@@ -62,9 +72,12 @@ namespace Maxim5579.ELMA.Beeline_net452
         /// </summary>
         public void Initialize()
         {
-            List<IUser> Users = FindUsersForTelephony("Rusdecking_Телефония продажи"); //TODO Создать группу "Rusdecking_Телефония продажи"
+            List<IUser> Users = FindUsersForTelephony("Rusdecking_Телефония продажи"); //TODO Название группы. Надо придумать
+            //TelephonyManager.TelephonyLog.Debug(String.Format("Count Users = {0}/ UserName = {1}",Users.Count.ToString(),Users[0].UserName));
             CreateDictionary(Users);
+            
             AbonentsSubscription();
+            //TelephonyManager.TelephonyLog.Debug("All abonents subscription is OK");
         }
 
         /// <summary>
@@ -103,12 +116,14 @@ namespace Maxim5579.ELMA.Beeline_net452
         private void CreateDictionary(List<IUser> users)
         {
             List<Abonent> abonents = _apiConnect.GetAllAbonents().Result;
-            lock (AbonentsConnector)
-            {
-                AbonentsConnector = null;
-                AbonentsConnector = new Dictionary<IUser, Abonent>();
-            }
-            foreach (IUser user in users)
+            //TelephonyManager.TelephonyLog.Debug(String.Format("Count Abonents = {0}", abonents.Count.ToString()));
+            //lock (AbonentsConnector)
+            //{
+                //AbonentsConnector = null;
+                AbonentsConnector = new Dictionary<User, Abonent>();
+            //}
+            //TelephonyManager.TelephonyLog.Debug(String.Format("AbonentsConnector = {0}", AbonentsConnector.GetType().ToString()));
+            foreach (User user in users)
             {
                 //DEBUG: сравнение пользователей ELMA  и абонентов Билайн проходит по полю Рабочий телефон(ELMA) и Добавочный номер (Билайн)
                 Abonent ab = abonents.Find(x => x.extension == user.WorkPhone);
@@ -120,6 +135,7 @@ namespace Maxim5579.ELMA.Beeline_net452
                     }
                 }
             }
+            //TelephonyManager.TelephonyLog.Debug(String.Format("Count Abonents = {0}", AbonentsConnector.Count.ToString()));
         }
 
         /// <summary>
@@ -133,10 +149,10 @@ namespace Maxim5579.ELMA.Beeline_net452
             sr.url = _subscriptionUrl;
             lock (AbonentsConnector)
             {
-                foreach (KeyValuePair<IUser, Abonent> kvp in AbonentsConnector)
+                foreach (KeyValuePair<User, Abonent> kvp in AbonentsConnector)
                 {
                     sr.pattern = kvp.Value.extension;
-                    kvp.Value.Sinfo1 = _apiConnect.Subscription(sr).Result; //TODO: Использовать async await
+                    kvp.Value.Sinfo = _apiConnect.Subscription(sr).Result; //TODO: Использовать async await
                 }
             }
         }
@@ -153,9 +169,9 @@ namespace Maxim5579.ELMA.Beeline_net452
             sr.url = _subscriptionUrl;
             lock (AbonentsConnector)
             {
-                KeyValuePair<IUser, Abonent> abonsInfo = FindAbonentsBy(subscriptionID);
+                KeyValuePair<User, Abonent> abonsInfo = FindAbonentsBy(subscriptionID);
                 sr.pattern = abonsInfo.Value.extension;
-                abonsInfo.Value.Sinfo1 = _apiConnect.Subscription(sr).Result;
+                abonsInfo.Value.Sinfo = _apiConnect.Subscription(sr).Result;
             }
         }
 
@@ -163,16 +179,17 @@ namespace Maxim5579.ELMA.Beeline_net452
         /// Поиск абонента телефонии по идентификатору подписки
         /// </summary>
         /// <param name="subscriptionId">Идентификатор подписки</param>
-        private KeyValuePair<IUser, Abonent> FindAbonentsBy(string subscriptionId)
+        public KeyValuePair<User, Abonent> FindAbonentsBy(string subscriptionId)
         {
             lock (AbonentsConnector)
             {
-                foreach (KeyValuePair<IUser, Abonent> item in AbonentsConnector)
-                {
-                    if (item.Value.Sinfo1.subscriptionId == subscriptionId) return item;
-                }
+                return AbonentsConnector.LastOrDefault(s => s.Value.Sinfo.subscriptionId == subscriptionId);
+                //foreach (KeyValuePair<User, Abonent> item in AbonentsConnector)
+                //{
+                //    if (item.Value.Sinfo.subscriptionId == subscriptionId) return item;
+                //}
             }
-            return default(KeyValuePair<IUser, Abonent>);
+            //return default(KeyValuePair<User, Abonent>);
         }
 
         #endregion
@@ -183,28 +200,51 @@ namespace Maxim5579.ELMA.Beeline_net452
         /// <param name="XMLString">XML событие в виде строки string</param>
         public void EventProcessing(string XMLString)
         {
+            //TODO логирование всех событий телефонии
+            LogEvents.addText(XMLString);
+            ////////////////////////////////////////
+
             XmlSerializer serializer = new XmlSerializer(typeof(BaseEvent));
             BaseEvent XMLObject = serializer.Deserialize(XmlReader.Create(new StringReader(XMLString))) as BaseEvent;
-            if (XMLObject == null) throw new ArgumentNullException(nameof(XMLObject));//TODO Определиться с этим исключением (может не нужно);
+            if (XMLObject == null)
+            {
+                TelephonyManager.TelephonyLog.Error("Десериализация XML строки вернула NULL");
+                return;
+            }
 
             SubscriptionEvent se = XMLObject as SubscriptionEvent;
-            if (se == null) throw new ArgumentNullException(nameof(se)); //TODO Не забыть про исключение
+            if (se == null) {
+                TelephonyManager.TelephonyLog.Error("Событие телефонии не является типом SubscriptionEvent");
+                return;
+            }
             EventData eventData = se.eventData;
             string NameEvent=eventData.ToString().Remove(0, eventData.ToString().LastIndexOf(".") + 1);
 
             if (typesEvents.CallTypesSet.Contains(NameEvent))
             {
-                //TODO Обработка события. ...RemoteParty.callType=Group - внутренние звоннки (не учитывать). Учитывать только Network
                 switch (NameEvent)
                 {
                     case "SubscriptionTerminatedEvent":
+                        User us = FindAbonentsBy(se.subscriptionId).Key;
+                        TelephonyManager.TelephonyLog.Debug("Событие сброс подписки для "+us.UserName+" SubscriptionTerminatedEvent");
                         AbonentsSubscription(se.subscriptionId);
+                        TelephonyManager.TelephonyLog.Debug("Событие переподписки для " + us.UserName + " выполнено");
                         break;
-                    case "CallReleasedEvent": //Звонок завершен
+                    case "CallReleasedEvent": //Звонок завершен TODO Реализовать формирование ссылки на запись разговора
+                        TelephonyManager.TelephonyLog.Debug("Событие Звонок завершен CallReleasedEvent");
                         CallReleasedEvent CRlE = eventData as CallReleasedEvent;
                         if (CRlE != null && CRlE.call.remoteParty.callType == CallType.Network)
                         {
-                            //TODO Реализовать "Звонок завершен"
+                            Dial newDial = ActualDials.findBySubscriptionID(se.subscriptionId);
+                            if (newDial != default(Dial))
+                            {
+                                newDial.State = DialState.CallEnding;
+                                lock (ActualDials)
+                                {
+                                    ActualDials.RemoveAt(ActualDials.FindIndexBySubscriptionID(se.subscriptionId));
+                                }
+                                onCallEnding?.Invoke(newDial);
+                            }
                         }
                         break;
                     case "CallReleasingEvent": //
@@ -215,11 +255,27 @@ namespace Maxim5579.ELMA.Beeline_net452
                         }
                         break;
                     case "CallOriginatedEvent": //Исходящий вызов. Номер набран на телефоне. Ждет ответа, слушает гудки.
+                        TelephonyManager.TelephonyLog.Debug("Событие Исходящий вызов CallOriginatedEvent");
                         CallOriginatedEvent COE = eventData as CallOriginatedEvent;
                         if (COE != null && COE.call.remoteParty.callType == CallType.Network)
                         {
-                            
-                        }//TODO Реализовать "Исходящий вызов"
+                            if (COE != null && COE.call.remoteParty.callType == CallType.Network) //Если это не внутренние звонки
+                            {
+                                Dial newDial = new Dial();
+                                Call tmpCall = COE.call;
+                                newDial.SubscriptionID = se.subscriptionId;
+                                newDial.TrackingId = tmpCall.extTrackingId;
+                                newDial.RemoteAddress = tmpCall.remoteParty.address.Value.Remove(0, 4);
+                                newDial.StartTime = tmpCall.startTime;
+                                newDial.EndTime = 0;
+                                newDial.State = DialState.OuterCall_originated;
+                                lock (ActualDials)
+                                {
+                                    ActualDials.Add(newDial);
+                                }
+                                onNewOuterCall?.Invoke(newDial);
+                            }
+                        }
                         break;
                     case "CallOriginatingEvent": //Исходящий. Номер набран программой. Идет вызов. State "Alerting" (когда из программы начинаешь звонить себе)
                         CallOriginatingEvent COrE = eventData as CallOriginatingEvent;
@@ -229,26 +285,60 @@ namespace Maxim5579.ELMA.Beeline_net452
                         }
                         break;
                     case "CallReceivedEvent": //Входящий вызов до поднятия трубки
+                        TelephonyManager.TelephonyLog.Debug("Событие Входящий вызов CallReceivedEvent");
                         CallReceivedEvent CRE = eventData as CallReceivedEvent;
                         if (CRE != null && CRE.call.remoteParty.callType == CallType.Network) //Если это не внутренние звонки
                         {
-                            //TODO Реализация события входящего звонка
+                            Dial newDial = new Dial();
+                            Call tmpCall = CRE.call;
+                            newDial.CallOutEvent = CRE.call;
+                            newDial.SubscriptionID = se.subscriptionId;
+                            newDial.TrackingId = tmpCall.extTrackingId;
+                            newDial.RemoteAddress = tmpCall.remoteParty.address.Value.Remove(0, 4);
+                            newDial.StartTime = tmpCall.startTime;
+                            newDial.EndTime = 0;
+                            newDial.State = DialState.InnerCall_waiting;
+                            lock (ActualDials)
+                            {
+                                ActualDials.Add(newDial);
+                            }
+                           
+                            if (CRE.call.acdCallInfo != null)
+                            {
+                                newDial.CallOutEvent = CRE.call;
+                                onCallCenterInnerCall?.Invoke(newDial);
+                            }
+                            else
+                                onNewInnerCall?.Invoke(newDial);
+                            /////////////////////////////////////////////////
+                            //if (CRE.call.remoteParty.name != "CallCenter 4007")
+                            //    onNewInnerCall?.Invoke(newDial);
+                            //else
+                            //    onCallCenterInnerCall?.Invoke(newDial);
                         }
                         break;
                     case "CallAnsweredEvent": //Поднятие трубки, ответ на вызов (исх и вх)
+                        TelephonyManager.TelephonyLog.Debug("Событие Поднятие трубки CallAnsweredEvent");
                         CallAnsweredEvent CAE = eventData as CallAnsweredEvent;
                         if (CAE != null && CAE.call.remoteParty.callType==CallType.Network)
                         {
-                            //TODO Реализовать "Поднятие трубки"
+                            Dial newDial = ActualDials.findBySubscriptionID(se.subscriptionId);
+                            if (newDial != default(Dial))
+                            {
+                                newDial.State = DialState.CallAnswered;
+                                lock (ActualDials)
+                                {
+                                    ActualDials[ActualDials.FindIndexBySubscriptionID(se.subscriptionId)] = newDial;
+                                }
+                                onCallAnswered?.Invoke(newDial);
+                            }
                         }
                         break;
                 }
             }
-            //TODO Если событие не из списка что делаем? Пока ничего
+            //Если событие не из списка что делаем? Пока ничего
         }
 
         
     }
-
-
 }

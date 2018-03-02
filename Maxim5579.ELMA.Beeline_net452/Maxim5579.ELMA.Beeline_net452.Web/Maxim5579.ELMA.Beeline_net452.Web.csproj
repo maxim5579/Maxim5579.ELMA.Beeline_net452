@@ -50,6 +50,10 @@
       <HintPath>C:\ELMA3-Express\Web\bin\Autofac.Integration.Web.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="EleWise.ELMA.Barcode">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Barcode.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="EleWise.ELMA.BPM">
       <HintPath>C:\ELMA3-Express\Web\bin\EleWise.ELMA.BPM.dll</HintPath>
       <Private>False</Private>
@@ -66,32 +70,306 @@
       <HintPath>C:\ELMA3-Express\Web\Modules\EleWise.ELMA.BPM.Web.Security\bin\EleWise.ELMA.BPM.Web.Security.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="EleWise.ELMA.Common">
-      <HintPath>C:\ELMA3-Express\Web\bin\EleWise.ELMA.Common.dll</HintPath>
+    <Reference Include="EleWise.ELMA.Calendar">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Calendar.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Calendar.Db.Firebird">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Calendar.Db.Firebird.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Calendar.Db.PostgreSQL">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Calendar.Db.PostgreSQL.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Common">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.ConfigurationModel">
+      <HintPath>..\..\ELMAConfiguration\EleWise.ELMA.ConfigurationModel.dll</HintPath>
+    </Reference>
+    <Reference Include="EleWise.ELMA.ConfigurationModel.Scripts">
+      <HintPath>..\..\ELMAConfiguration\EleWise.ELMA.ConfigurationModel.Scripts.dll</HintPath>
     </Reference>
     <Reference Include="EleWise.ELMA.Content">
-      <HintPath>C:\ELMA3-Express\Web\bin\EleWise.ELMA.Content.dll</HintPath>
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Content.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="EleWise.ELMA.CRM.Telephony">
+    <Reference Include="EleWise.ELMA.Content.Db.Firebird">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Content.Db.Firebird.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Content.Db.PostgreSQL">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Content.Db.PostgreSQL.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.CRM, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.CRM.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.CRM.Db.Firebird">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.CRM.Db.Firebird.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.CRM.Design">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.CRM.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.CRM.RU, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.CRM.RU.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.CRM.Telephony, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.CRM.Telephony.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="EleWise.ELMA.CRM.Workflow.Processes">
+    <Reference Include="EleWise.ELMA.CRM.Workflow.Processes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.CRM.Workflow.Processes.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="EleWise.ELMA.CRM.Workflow.Processes.Db.Firebird, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.CRM.Workflow.Processes.Db.Firebird.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Documents">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Documents.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Documents.Contracts">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Documents.Contracts.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Documents.Db.Firebird">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Documents.Db.Firebird.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Documents.Db.PostgreSQL">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Documents.Db.PostgreSQL.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Documents.Design">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Documents.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Documents.Docflow">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Documents.Docflow.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Documents.Docflow.CryptoPro">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Documents.Docflow.CryptoPro.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Documents.Docflow.Db.Firebird">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Documents.Docflow.Db.Firebird.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Documents.Docflow.Db.PosgreSQL">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Documents.Docflow.Db.PosgreSQL.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Documents.Forms.Design">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Documents.Forms.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.DynamicModel">
+      <HintPath>..\..\ELMAConfiguration\EleWise.ELMA.DynamicModel.dll</HintPath>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Extensions.Firebird">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Extensions.Firebird.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Extensions.PostgreSQL">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Extensions.PostgreSQL.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Extensions.RavenDB">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Extensions.RavenDB.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.iPad">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.iPad.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.iPad.KPI">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.iPad.KPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.KPI">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.KPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.KPI.Db.Firebird">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.KPI.Db.Firebird.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.KPI.Db.PostgreSQL">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.KPI.Db.PostgreSQL.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.KPI.Design">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.KPI.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.KPI.Workflow">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.KPI.Workflow.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.KPI.Workflow.Design">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.KPI.Workflow.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Messages">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Messages.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Messages.Db.Firebird">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Messages.Db.Firebird.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Messages.Db.PostgreSQL">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Messages.Db.PostgreSQL.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Messages.RichEmail">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Messages.RichEmail.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Messaging.Email">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Messaging.Email.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Messaging.SMS">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Messaging.SMS.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Morpher.Ru">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Morpher.Ru.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.PortalConnector">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.PortalConnector.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Projects">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Projects.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Projects.Db.Firebird">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Projects.Db.Firebird.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Projects.Db.PostgreSQL">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Projects.Db.PostgreSQL.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Projects.Design">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Projects.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Projects.Forms.Design">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Projects.Forms.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Reports">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Reports.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Reports.Db.Firebird">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Reports.Db.Firebird.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Reports.Db.PostgreSQL">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Reports.Db.PostgreSQL.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Reports.Design">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Reports.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Reports.Documents">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Reports.Documents.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Reports.Documents.Docflow">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Reports.Documents.Docflow.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="EleWise.ELMA.SDK">
-      <HintPath>C:\ELMA3-Express\Web\bin\EleWise.ELMA.SDK.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\szsnjqhw.vbx\EleWise.ELMA.SDK.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.SDK.Design">
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\szsnjqhw.vbx\EleWise.ELMA.SDK.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.SDK.Diagrams">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.SDK.Diagrams.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.SDK.Diagrams.Design">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.SDK.Diagrams.Design.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="EleWise.ELMA.SDK.Web">
-      <HintPath>C:\ELMA3-Express\Web\bin\EleWise.ELMA.SDK.Web.dll</HintPath>
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.SDK.Web.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.SDK.Web.Orchard">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.SDK.Web.Orchard.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="EleWise.ELMA.Security">
-      <HintPath>C:\ELMA3-Express\Web\bin\EleWise.ELMA.Security.dll</HintPath>
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Security.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Security.Db.Firebird">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Security.Db.Firebird.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Security.Db.PostgreSQL">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Security.Db.PostgreSQL.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Security.Design">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Security.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Tasks">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Tasks.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Workflow">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Workflow.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Workflow.Db.Firebird">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Workflow.Db.Firebird.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Workflow.Db.PostgeSQL">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Workflow.Db.PostgeSQL.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Workflow.Design">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Workflow.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Workflow.Indicators.Design">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Workflow.Indicators.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Workflow.Processes">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Workflow.Processes.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EleWise.ELMA.Workflow.Processes.Design">
+      <HintPath>C:\ELMA3-Express\Designer\EleWise.ELMA.Workflow.Processes.Design.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -140,10 +418,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BeelineAreaRegistration.cs" />
+    <Compile Include="Components\BeelineConnectionScheduler.cs" />
     <Compile Include="Components\BeelineSettingsModuleController.cs" />
     <Compile Include="Components\MakeCallScriptExtensionZone.cs" />
     <Compile Include="Controllers\BeelineServerController.cs" />
     <Compile Include="Controllers\BeelineSettingsController.cs" />
+    <Compile Include="Controllers\BeeOpenCallController.cs" />
+    <Compile Include="Models\PhoneCallInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteProvider.cs" />
   </ItemGroup>
@@ -153,9 +434,7 @@
   <ItemGroup>
     <Folder Include="Content\" />
     <Folder Include="Extension\" />
-    <Folder Include="Models\" />
     <Folder Include="Scripts\" />
-    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Maxim5579.ELMA.Beeline_net452\Maxim5579.ELMA.Beeline_net452.csproj">
@@ -176,6 +455,10 @@
     <Content Include="Views\MakeCallScript.cshtml" />
     <Content Include="Views\BeelineSettings\View.cshtml" />
     <Content Include="Views\BeelineSettings\Edit.cshtml" />
+    <Content Include="Views\Shared\BeelineCallPage.cshtml" />
+    <Content Include="Views\Shared\BeeOpenCall.cshtml" />
+    <Content Include="Views\BeeOpenCall\OpenCallView.cshtml" />
+    <Content Include="Views\BeeOpenCall\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
